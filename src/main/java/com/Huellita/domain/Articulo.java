@@ -9,10 +9,7 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Data;
 
-/**
- *
- * 
- */
+
 @Data
 @Entity
 @Table(name = "articulo")

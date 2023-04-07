@@ -8,10 +8,7 @@ import com.Huellita.domain.Cita;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author Derek
- */
+
 public interface CitaDao extends JpaRepository<Cita, Long>{
     
 }

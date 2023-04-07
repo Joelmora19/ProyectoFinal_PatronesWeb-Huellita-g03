@@ -4,10 +4,7 @@
  */
 package com.Huellita.dao;
 
-/**
- *
- * @author Monserrat Najera
- */
+
 public interface UsersDao {
     
 }

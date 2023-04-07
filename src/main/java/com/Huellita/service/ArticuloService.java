@@ -7,10 +7,7 @@ package com.Huellita.service;
 import com.Huellita.domain.Articulo;
 import java.util.List;
 
-/**
- *
- * @author Derek
- */
+
 public interface ArticuloService {
     public List<Articulo> getArticulo();
     

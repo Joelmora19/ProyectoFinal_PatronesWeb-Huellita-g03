@@ -7,10 +7,7 @@ package com.Huellita.service;
 import com.Huellita.domain.Users;
 import java.util.List;
 
-/**
- *
- * @author Monserrat Najera
- */
+
 public interface UsersService {
    
 }

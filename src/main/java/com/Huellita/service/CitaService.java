@@ -7,10 +7,7 @@ package com.Huellita.service;
 import com.Huellita.domain.Cita;
 import java.util.List;
 
-/**
- *
- * @author Derek
- */
+
 public interface CitaService {
     public List<Cita> getCita();
     

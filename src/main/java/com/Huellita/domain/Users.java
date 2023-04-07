@@ -13,10 +13,7 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Data;
 
-/**
- *
- * @author Monserrat Najera
- */
+
 @Data
 @Entity
 @Table(name="users")

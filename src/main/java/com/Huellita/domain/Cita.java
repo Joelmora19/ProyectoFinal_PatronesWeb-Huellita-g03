@@ -6,10 +6,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
 
-/**
- *
- * @author Derek
- */
+
 @Data
 @Entity
 @Table(name="citas")

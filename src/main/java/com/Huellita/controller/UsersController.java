@@ -8,10 +8,7 @@ import org.springframework.stereotype.Controller;
 
 
 
-/**
- *
- * @author Monserrat Najera
- */
+
 @Controller
 public class UsersController {
 }

@@ -10,10 +10,7 @@ import com.Huellita.service.UsersService;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Monserrat Najera
- */
+
 public class UsersServiceImpl implements UsersService {
     
 

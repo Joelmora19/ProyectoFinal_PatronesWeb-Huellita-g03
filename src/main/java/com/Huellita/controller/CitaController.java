@@ -13,10 +13,6 @@ import com.Huellita.service.CitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 
-/**
- *
- * @author 
- */
 
 @Controller
 @RequestMapping("/cita")
