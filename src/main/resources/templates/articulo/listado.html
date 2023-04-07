@@ -1,0 +1,51 @@
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{layout/plantilla :: head}"></head>
+
+    <body>
+
+        <header th:replace="~{layout/plantilla :: header}"></header>
+    <seccion class="container">
+        <a th:href="@{/articulo/nuevo}"><button   class="btn btn-success">Agregar</button></a>
+    </seccion>
+    <section class="container" style="margin-top: 20px;">
+        <div class="row" >
+            <div class="lg-col-9" >
+                <h3 class="text-center">Lista de Articulos</h3>
+                <!-- TABLA -->
+                <div th:if="${articulo ==null or articulo.empty}">
+                    <p>NO EXISTEN DATOS PARA MOSTRAR</p>
+                </div>
+                <table class="table table-hover" th:if="${articulo!=null and !articulo.empty}">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Detalle</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Existencias</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="articulo : ${articulo}">
+                            <th scope="row">[[${articulo.id_Articulo}]]</th>
+                            <td>[[${articulo.descripcion}]]</td>
+                            <td>[[${articulo.detalle}]]</td>
+                            <td>[[${articulo.precio}]]</td>
+                            <td>[[${articulo.existencias}]]</td>
+                            <td>
+                                <a th:href="@{/articulo/editar/}+${articulo.id_Articulo}" ><button  class="btn btn-warning">EDITAR</button></a>
+                                <a th:href="@{/articulo/eliminar/}+${articulo.id_Articulo}"><button   class="btn btn-danger">Eliminar</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="~{layout/plantilla :: footer}"></footer>
+</body>
+</html>

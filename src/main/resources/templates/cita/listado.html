@@ -1,0 +1,61 @@
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{layout/plantilla :: head}"></head>
+
+    <body>
+        
+        <header th:replace="~{layout/plantilla :: header}"></header>
+    <seccion class="container">
+        <a th:href="@{/cita/nuevo}"><button   class="btn btn-success">Agregar</button></a>
+    </seccion>
+    <section class="container" style="margin-top: 20px;">
+        <div class="row" >
+            <div class="lg-col-9" >
+                <h3 class="text-center">Lista de Citas</h3>
+                <!-- TABLA -->
+                <div th:if="${cita ==null or cita.empty}">
+                    <p>NO EXISTEN DATOS PARA MOSTRAR</p>
+                </div>
+                <table class="table table-hover" th:if="${cita!=null and !cita.empty}">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">USUARIO</th>
+                            <th scope="col">Dueño</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Mascota</th>
+                            <th scope="col">Paciente</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cita : ${cita}">
+                            <th scope="row">[[${cita.id_Cita}]]</th>
+                            <th scope="row">[[${cita.users.idUsers}]]</th>
+                            <th scope="row">[[${cita.nombreDueno}]]</th>
+                            <th scope="row">[[${cita.correo}]]</th>
+                            <th scope="row">[[${cita.telefono}]]</th>
+                            <th scope="row">[[${cita.nombreMascota}]]</th>
+                            <th scope="row">[[${cita.paciente}]]</th>
+                            <th scope="row">[[${cita.fechaCita}]]</th>
+                            <th scope="row">[[${cita.horaCita}]]</th>
+                            <th scope="row">[[${cita.descripcion}]]</th>
+                            <td>
+                                <a th:href="@{/cita/editar/}+${cita.id_Cita}" ><button  class="btn btn-warning">EDITAR</button></a>
+                                <a th:href="@{/cita/eliminar/}+${cita.id_Cita}"><button   class="btn btn-danger">Eliminar</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer th:replace="~{layout/plantilla :: footer}"></footer>
+</body>
+</html>
