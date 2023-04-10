@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="~{layout/plantilla :: head}"></head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+    <seccion class="container">
+        <a th:href="@{/blog/nuevo}"><button   class="btn btn-success">Agregar</button></a>
+    </seccion>
+    <section class="container" style="margin-top: 20px;">
+        <div class="row" >
+            <div class="lg-col-9" >
+                <h3 class="text-center">Lista de Blogs</h3>
+                <!-- TABLA -->
+                <div th:if="${blog ==null or blog.empty}">
+                    <p>NO EXISTEN DATOS PARA MOSTRAR</p>
+                </div>
+                <table class="table table-hover" th:if="${blog!=null and !blog.empty}">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Asunto</th>
+                            <th scope="col">Comentario</th>
+                        </tr>
+                    </thead>
+                     <tbody>
+                        <tr th:each="blog : ${blog}">
+                            <th scope="row">[[${blog.id_Blog}]]</th>
+                            <td>[[${blog.descripcion}]]</td>
+                            <td>[[${blog.asunto}]]</td>
+                            <td>[[${blog.comentario}]]</td>
+                            <td>
+                                <a th:href="@{/blog/editar/}+${blog.id_Blog}" ><button  class="btn btn-warning">EDITAR</button></a>
+                                <a th:href="@{/blog/eliminar/}+${blog.id_Blog}"><button   class="btn btn-danger">Eliminar</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

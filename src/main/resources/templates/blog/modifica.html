@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}"></head>
+       
+    <body>
+       <header th:replace="~{layout/plantilla :: header}"></header>
+        <div style="padding: 10px;" >
+            <h4 th:if="${blog.id_Blog != null}" class="text-center" >Blog: [[${blog.descripcion}]]</h4>
+            <h4 th:if="${blog.id_Blog== null}" class="text-center" >Nuevo Blog</h4>
+        </div>
+       <div style="margin: 20px;  " class="container">
+            <form th:action="@{/blog/guardar}" method="POST" th:object="${blog}" class="row">
+                <input type="hidden" name="id_Blog" th:field='*{id_Blog}'>
+                <div class="col-5">
+                    <label class="form-label">Nombre Blog</label>
+                    <input type="text" class="form-control" size="15" id="descripcion" name="descripcion" th:field='*{descripcion}'>
+                </div>
+                <div class="col-5">
+                    <label class="form-label">Asunto</label>
+                    <input type="text" class="form-control" size="15" id="asunto" name="asunto" th:field='*{asunto}'>
+                </div>
+                <div class="col-5">
+                    <label class="form-label">comentario</label>
+                    <input type="text" class="form-control" size="15" id="comentario" th:field='*{comentario}' name="comentario">
+                </div>
+                <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
+            </form>
+       </div>
+    </body>
+</html>

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Huellita.controller;
 
 import com.Huellita.domain.Articulo;
@@ -18,10 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/articulo")
 
 public class ArticuloController {
-
+    
     @Autowired
     private ArticuloService articuloService;
-
+    
     //---------LISTADO--------
     @GetMapping("/listado")
     public String inicioArticuto(Model model) {
@@ -58,5 +54,5 @@ public class ArticuloController {
     }
     
     
-
+    
 }
