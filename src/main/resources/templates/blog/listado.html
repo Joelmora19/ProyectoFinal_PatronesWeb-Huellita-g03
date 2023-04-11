@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-    
+
     <head th:replace="~{layout/plantilla :: head}"></head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"></header>
@@ -25,7 +25,7 @@
                             <th scope="col">Comentario</th>
                         </tr>
                     </thead>
-                     <tbody>
+                    <tbody>
                         <tr th:each="blog : ${blog}">
                             <th scope="row">[[${blog.id_Blog}]]</th>
                             <td>[[${blog.descripcion}]]</td>

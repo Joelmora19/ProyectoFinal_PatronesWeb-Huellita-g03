@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="~{layout/plantilla :: head}"></head>
+    
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+    <seccion class="container">
+        <a th:href="@{/adopcion/nuevo}"><button   class="btn btn-success">Agregar</button></a>
+    </seccion>
+    <section class="container" style="margin-top: 20px;">
+        <div class="row" >
+            <div class="lg-col-9" >
+                <h3 class="text-center">Lista de Adopcion</h3>
+                <!-- TABLA -->
+                <div th:if="${adopcion ==null or adopcion.empty}">
+                    <p>NO EXISTEN DATOS PARA MOSTRAR</p>
+                </div>
+                <table class="table table-hover" th:if="${adopcion!=null and !adopcion.empty}">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Descripcion del animal</th>
+                            <th scope="col">animal</th>
+                            <th scope="col">motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="adopcion : ${adopcion}">
+                            <th scope="row">[[${adopcion.id_Adopcion}]]</th>
+                            <td>[[${adopcion.descripcion}]]</td>
+                            <td>[[${adopcion.animal}]]</td>
+                            <td>[[${adopcion.motivo}]]</td>
+                            <td>
+                                <a th:href="@{/adopcion/editar/}+${adopcion.id_Adopcion}" ><button  class="btn btn-warning">EDITAR</button></a>
+                                <a th:href="@{/adopcion/eliminar/}+${adopcion.id_Adopcion}"><button   class="btn btn-danger">Eliminar</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </section>
+                </body>
+                </html>
