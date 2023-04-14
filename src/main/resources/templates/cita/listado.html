@@ -35,16 +35,16 @@
                     </thead>
                     <tbody>
                         <tr th:each="cita : ${cita}">
-                            <th scope="row">[[${cita.id_Cita}]]</th>
-                            <th scope="row">[[${cita.users.idUsers}]]</th>
-                            <th scope="row">[[${cita.nombreDueno}]]</th>
-                            <th scope="row">[[${cita.correo}]]</th>
-                            <th scope="row">[[${cita.telefono}]]</th>
-                            <th scope="row">[[${cita.nombreMascota}]]</th>
-                            <th scope="row">[[${cita.paciente}]]</th>
-                            <th scope="row">[[${cita.fechaCita}]]</th>
-                            <th scope="row">[[${cita.horaCita}]]</th>
-                            <th scope="row">[[${cita.descripcion}]]</th>
+                            <td scope="row">[[${cita.id_Cita}]]</td>
+                            <td scope="row">[[${cita.users.idUsers}]]</td>
+                            <td scope="row">[[${cita.nombreDueno}]]</td>
+                            <td scope="row">[[${cita.correo}]]</th>
+                            <td scope="row">[[${cita.telefono}]]</td>
+                            <td scope="row">[[${cita.nombreMascota}]]</td>
+                            <td scope="row">[[${cita.paciente}]]</td>
+                            <td scope="row">[[${cita.fechaCita}]]</td>
+                            <td scope="row">[[${cita.horaCita}]]</td>
+                            <td scope="row">[[${cita.descripcion}]]</td>
                             <td>
                                 <a th:href="@{/cita/editar/}+${cita.id_Cita}" ><button  class="btn btn-warning">EDITAR</button></a>
                                 <a th:href="@{/cita/eliminar/}+${cita.id_Cita}"><button   class="btn btn-danger">Eliminar</button></a>
