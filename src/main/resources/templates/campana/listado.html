@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{layout/plantilla :: head}"></head>
+
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+    <seccion class="container">
+        <a th:href="@{/campana/nuevo}"><button   class="btn btn-success">Agregar</button></a>
+    </seccion>
+    <section class="container" style="margin-top: 20px;">
+        <div class="row" >
+            <div class="lg-col-9" >
+                <h3 class="text-center">Lista de campanas</h3>
+                <!-- TABLA -->
+                <div th:if="${campana ==null or campana.empty}">
+                    <p>NO EXISTEN DATOS PARA MOSTRAR</p>
+                </div>
+                <table class="table table-hover" th:if="${campana!=null and !campana.empty}">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Nombre de la campana</th>
+                            <th scope="col">Descripcion</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="campana : ${campana}">
+                            <th scope="row">[[${campana.id_Campanas}]]</th>
+                            <td>[[${campana.nombre}]]</td>
+                            <td>[[${campana.descripcion}]]</td>
+                            <td>
+                                <a th:href="@{/campana/editar/}+${campana.id_Campanas}" ><button  class="btn btn-warning">Editar</button></a>
+                                <a th:href="@{/campana/eliminar/}+${campana.id_Campanas}"><button   class="btn btn-danger">Eliminar</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </section>
+                </body>
+                </html>
