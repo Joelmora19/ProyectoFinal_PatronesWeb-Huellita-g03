@@ -6,30 +6,30 @@
        <header th:replace="~{layout/plantilla :: header}"></header>
         <div style="padding: 10px;" >
             <h4 th:if="${curso.id_Curso != null}" class="text-center" >Curso: [[${curso.nombre}]]</h4>
-            <h4 th:if="${curso.id_Curso== null}" class="text-center" >Nueva suscripcion</h4>
+            <h4 th:if="${curso.id_Curso== null}" class="text-center" >[[#{plantilla.nsub}]]</h4>
         </div>
        <div style="margin: 20px;  " class="container">
             <form th:action="@{/curso/guardar}" method="POST" th:object="${curso}" class="row">
                 <input type="hidden" name="id_Curso" th:field='*{id_Curso}'>
                 <div class="col-5">
-                    <label class="form-label">Nombre completo:</label>
+                    <label class="form-label">[[#{plantilla.name}]]:</label>
                    <input type="text" class="form-control" size="15" id="nombre" name="nombre" th:field='*{nombre}'>
 
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Numero de telefono </label>
+                    <label class="form-label">[[#{plantilla.tel}]] </label>
                     <input type="tel" class="form-control" size="15" id="telefono" name="telefono" th:field='*{telefono}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Correo electronico:</label>
+                    <label class="form-label">[[#{plantilla.email}]]:</label>
                     <input type="email" class="form-control" size="15" id="correo" th:field='*{correo}' name="correo">
                 </div>
                  <div class="col-5">
-                    <label class="form-label">Eres estudiante?</label>
+                    <label class="form-label">[[#{plantilla.est}]]</label>
                     <input type="text" class="form-control" size="15" id="estudiante" th:field='*{estudiante}' name="estudiante">
                 </div>
                  <div class="col-5">
-                    <label class="form-label">Eres medico?</label>
+                    <label class="form-label">[[#{plantilla.doc}]]</label>
                     <input type="text" class="form-control" size="15" id="medico" th:field='*{medico}' name="medico" >
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>

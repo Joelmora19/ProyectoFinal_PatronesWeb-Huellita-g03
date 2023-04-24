@@ -13,7 +13,7 @@
             <form th:action="@{/blog/guardar}" method="POST" th:object="${blog}" class="row">
                 <input type="hidden" name="id_Blog" th:field='*{id_Blog}'>
                 <div class="col-5">
-                    <label class="form-label">Nombre Blog</label>
+                    <label class="form-label">[[#{plantilla.blog}]]</label>
                     <input type="text" class="form-control" size="15" id="descripcion" name="descripcion" th:field='*{descripcion}'>
                 </div>
                 <div class="col-5">
