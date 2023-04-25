@@ -6,26 +6,26 @@
     <body>
         <header th:replace="~{layout/plantilla :: header}"></header>
         <div style="padding: 10px;" >
-            <h4 th:if="${articulo.id_Articulo != null}" class="text-center" >Articulo: [[${articulo.descripcion}]]</h4>
-            <h4 th:if="${articulo.id_Articulo == null}" class="text-center" >Nuevo Articulo</h4>
+            <h4 th:if="${articulo.id_Articulo != null}" class="text-center" >[[#{plantilla.Articulo}]]: [[${articulo.descripcion}]]</h4>
+            <h4 th:if="${articulo.id_Articulo == null}" class="text-center" >[[#{plantilla.NuevoArticulo}]]:</h4>
         </div>
         <div style="margin: 20px;  " class="container">
             <form th:action="@{/articulo/guardar}" method="POST" th:object="${articulo}" class="row">
                 <input type="hidden" name="id_Articulo" th:field='*{id_Articulo}'>
                 <div class="col-5">
-                    <label class="form-label">Nombre Articulo</label>
+                    <label class="form-label">[[#{plantilla.NombreArticulo}]]:</label>
                     <input type="text" class="form-control" size="15" id="descripcion" name="descripcion" th:field='*{descripcion}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Descripcion</label>
+                    <label class="form-label">[[#{plantilla.Descripcion}]]:</label>
                     <input type="text" class="form-control" size="15" id="detalle" name="detalle" th:field='*{detalle}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Precio</label>
+                    <label class="form-label">[[#{plantilla.Precio}]]:</label>
                     <input type="number" class="form-control" id="precio" th:field='*{precio}' name="precio">
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Existencias</label>
+                    <label class="form-label">[[#{plantilla.Existencias}]]:</label>
                     <input type="number" class="form-control" id="existencias" th:field='*{existencias}' name="existencias">
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>

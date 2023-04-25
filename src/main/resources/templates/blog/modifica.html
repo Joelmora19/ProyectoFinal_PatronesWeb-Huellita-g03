@@ -7,7 +7,7 @@
        <header th:replace="~{layout/plantilla :: header}"></header>
         <div style="padding: 10px;" >
             <h4 th:if="${blog.id_Blog != null}" class="text-center" >Blog: [[${blog.descripcion}]]</h4>
-            <h4 th:if="${blog.id_Blog== null}" class="text-center" >Nuevo Blog</h4>
+            <h4 th:if="${blog.id_Blog== null}" class="text-center" >[[#{plantilla.NuevoBlog}]]:</h4>
         </div>
        <div style="margin: 20px;  " class="container">
             <form th:action="@{/blog/guardar}" method="POST" th:object="${blog}" class="row">
@@ -17,15 +17,16 @@
                     <input type="text" class="form-control" size="15" id="descripcion" name="descripcion" th:field='*{descripcion}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Asunto</label>
+                    <label class="form-label">[[#{plantilla.Asunto}]]:</label>
                     <input type="text" class="form-control" size="15" id="asunto" name="asunto" th:field='*{asunto}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">comentario</label>
+                    <label class="form-label">[[#{plantilla.Comentario}]]:</label>
                     <input type="text" class="form-control" size="15" id="comentario" th:field='*{comentario}' name="comentario">
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
             </form>
        </div>
+        <footer th:replace="~{layout/plantilla :: footer}"></footer>
     </body>
 </html>

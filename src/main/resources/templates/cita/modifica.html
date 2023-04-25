@@ -13,39 +13,39 @@
             <form th:action="@{/cita/guardar}" method="POST" th:object="${cita}" class="row">
                 <input type="hidden" name="id_Cita" th:field='*{id_Cita}'>
                 <div class="col-5">
-                    <label class="form-label">Nombre Dueño</label>
+                    <label class="form-label">[[#{plantilla.NombredelDueño}]]:</label>
                     <input type="text" class="form-control" size="15" id="descripcion"  th:field='*{nombreDueno}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Correo</label>
+                    <label class="form-label">[[#{plantilla.correo}]]:</label>
                     <input type="email" class="form-control" size="15" id="detalle"  th:field='*{correo}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Telefono</label>
+                    <label class="form-label">[[#{plantilla.telefono}]]:</label>
                     <input type="text" class="form-control" size="15" id="telefono"  th:field='*{telefono}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Paciente</label>
+                    <label class="form-label">[[#{plantilla.Paciente}]]:</label>
                     <input type="text" class="form-control" size="15" id="paciente"  th:field='*{Paciente}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Mascota</label>
+                    <label class="form-label">[[#{plantilla.Mascotas}]]:</label>
                     <input type="text" class="form-control" size="15" id="nombreMascota"  th:field='*{nombreMascota}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Fecha Cita</label>
+                    <label class="form-label">[[#{plantilla.FechaCita}]]:</label>
                     <input type="date" class="form-control" size="15" id="fechaCita"  th:field='*{fechaCita}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Hora Cita</label>
+                    <label class="form-label">[[#{plantilla.HoraCita}]]:</label>
                     <input type="time" class="form-control" size="15" id="horaCita" th:field='*{horaCita}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Descripcion</label>
+                    <label class="form-label">[[#{plantilla.Descripcion}]]:</label>
                     <input type="text" class="form-control" size="15" id="horaCita" th:field='*{descripcion}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Usuario</label>
+                    <label class="form-label">[[#{plantilla.Usuario}]]:</label>
                     <input type="number" class="form-control" size="15" id="horaCita" th:field='*{users.idUsers}'>
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
