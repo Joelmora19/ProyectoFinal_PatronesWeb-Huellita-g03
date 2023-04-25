@@ -24,6 +24,8 @@ public class Articulo implements Serializable {
     private String detalle;
     private double precio;
     private int existencias;
+    @Column(name="ruta_imagen")
+    private String rutaImagen;
 
     public Articulo() {
     }

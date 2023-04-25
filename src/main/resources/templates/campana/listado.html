@@ -20,27 +20,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div th:if="${campana ==null or campana.empty}">
                     <p>NO EXISTEN DATOS PARA MOSTRAR</p>
                 </div>
-                <table class="table table-hover" th:if="${campana!=null and !campana.empty}">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
+                <div class="row row-cols-3" th:if="${campana!=null and !campana.empty}">
+                    <div class="card" th:each="campana : ${campana}">
+                     <div class="card-body" >   
+                       
+                           <!-- <th scope="col">id</th>
                             <th scope="col">[[#{plantilla.NombreCampa}]]:</th>
-                            <th scope="col">[[#{plantilla.Descripcion}]]:</th>
+                            <th scope="col">[[#{plantilla.Descripcion}]]:</th>-->
                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="campana : ${campana}">
-                            <th scope="row">[[${campana.id_Campanas}]]</th>
-                            <td>[[${campana.nombre}]]</td>
-                            <td>[[${campana.descripcion}]]</td>
-                            <td>
+                       
+                   
+    
+                        
+                            <h4 class="card-subtitle mb-2 text-muted text-end">[[${campana.id_Campanas}]]</h4>
+                            <h5 class="card-title">[[${campana.nombre}]]</h5>
+                            <h6 class="card-text">[[${campana.descripcion}]]</h6>
+                            <br/>
+                             <figure>
+                        <br/>
+                        <figcaption>
+                            <img th:src="${campana.rutaImagen}" height="350" width="250"/>
+                        </figcaption>
+                        <br/>
+                        <br/>
                                 <a th:href="@{/campana/editar/}+${campana.id_Campanas}" ><button  class="btn btn-warning">Editar</button></a>
+                                <br/>
+                                <br/>
                                 <a th:href="@{/campana/eliminar/}+${campana.id_Campanas}"><button   class="btn btn-danger">Eliminar</button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                             </figure>
+                        
+               
+                  </div>
+                </div>
                 </section>
                 </body>
                 </html>

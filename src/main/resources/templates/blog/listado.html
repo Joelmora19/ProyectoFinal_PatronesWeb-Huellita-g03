@@ -16,30 +16,41 @@
                 <div th:if="${blog ==null or blog.empty}">
                     <p>NO EXISTEN DATOS PARA MOSTRAR</p>
                 </div>
-                <table class="table table-hover" th:if="${blog!=null and !blog.empty}">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
+                <div class="row row-cols-3" th:if="${blog!=null and !blog.empty}">
+                    <div class="card" th:each="blog : ${blog}">
+                    <div class="card-body" >    
+                            
+                       <!-- <th scope="col">id</th>
                             <th scope="col">[[#{plantilla.Descripcion}]]:</th>
                             <th scope="col">[[#{plantilla.Asunto}]]:</th>
-                            <th scope="col">[[#{plantilla.Comentario}]]:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="blog : ${blog}">
-                            <th scope="row">[[${blog.id_Blog}]]</th>
-                            <td>[[${blog.descripcion}]]</td>
-                            <td>[[${blog.asunto}]]</td>
-                            <td>[[${blog.comentario}]]</td>
-                            <td>
-                                <a th:href="@{/blog/editar/}+${blog.id_Blog}" ><button  class="btn btn-warning">EDITAR</button></a>
+                            <th scope="col">[[#{plantilla.Comentario}]]:</th>-->
+                       
+                   
+                    
+                        
+                            <h4 class="card-subtitle mb-2 text-muted text-end">[[${blog.id_Blog}]]</h4>
+                            <h5 class="card-title">[[${blog.descripcion}]]</h5>
+                            <h6 class="card-text">[[${blog.asunto}]]</h6>
+                            <h7 class="card-text">[[${blog.comentario}]]</h7>
+                            <br/>
+                            <figure>
+                        <br/>
+                        <figcaption>
+                            <img th:src="${blog.rutaImagen}" height="200" />
+                        </figcaption>
+                        <br/>
+                        <br/>
+                            
+                                <a th:href="@{/blog/editar/}+${blog.id_Blog}" ><button  class="btn btn-warning">Editar</button></a>
+                                <br/>
+                                <br/>
                                 <a th:href="@{/blog/eliminar/}+${blog.id_Blog}"><button   class="btn btn-danger">Eliminar</button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </figure>
+                       
+                  
+                </div>
             </div>
-        </div>
+       
     </section>
      <footer th:replace="~{layout/plantilla :: footer}"></footer>
 </body>

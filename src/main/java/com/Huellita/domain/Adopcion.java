@@ -26,6 +26,8 @@ public class Adopcion implements Serializable {
     private String descripcion;
     private String animal;
     private String motivo;
+    @Column(name="ruta_imagen")
+    private String rutaImagen;
 
     public Adopcion() {
     }

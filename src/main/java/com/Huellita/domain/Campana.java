@@ -31,6 +31,8 @@ public class Campana implements Serializable{
 
     private String nombre;
     private String descripcion;
+    @Column(name="ruta_imagen")
+    private String rutaImagen;
 
     public Campana() {
     }

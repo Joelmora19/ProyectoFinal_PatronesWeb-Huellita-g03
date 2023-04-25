@@ -16,28 +16,39 @@
                 <div th:if="${adopcion ==null or adopcion.empty}">
                     <p>NO EXISTEN DATOS PARA MOSTRAR</p>
                 </div>
-                <table class="table table-hover" th:if="${adopcion!=null and !adopcion.empty}">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">[[#{plantilla.DescripcionAnimal}]]:</th>
-                            <th scope="col">[[#{plantilla.Animal}]]:</th>
-                            <th scope="col">[[#{plantilla.Motivo}]]:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="adopcion : ${adopcion}">
-                            <th scope="row">[[${adopcion.id_Adopcion}]]</th>
-                            <td>[[${adopcion.descripcion}]]</td>
-                            <td>[[${adopcion.animal}]]</td>
-                            <td>[[${adopcion.motivo}]]</td>
-                            <td>
-                                <a th:href="@{/adopcion/editar/}+${adopcion.id_Adopcion}" ><button  class="btn btn-warning">EDITAR</button></a>
+                <div class="row row-cols-3" th:if="${adopcion!=null and !adopcion.empty}">
+                  <div class="card" th:each="adopcion : ${adopcion}">
+                
+                   <div class="card-body" >
+                        
+                            <!--<h4 class="card-subtitle mb-2 text-muted text-end">Id</h4>
+                            <h5 class="card-title">[[#{plantilla.DescripcionAnimal}]]:</h5>
+                            <h6 class="card-text">[[#{plantilla.Animal}]]:</h6>
+                            <h7 class="card-text">[[#{plantilla.Motivo}]]:</h7>-->
+                        
+                            <h4  class="card-subtitle mb-2 text-muted text-end">[[${adopcion.id_Adopcion}]]</h4>
+                            <h5 class="card-title"> [[${adopcion.descripcion}]]</h5>
+                            <h6 class="card-text">[[${adopcion.animal}]]</h6>
+                            <h7 class="card-text">[[${adopcion.motivo}]]</h7>
+                            <br/>
+                    <figure>
+                        <br/>
+                        <figcaption>
+                            <img th:src="${adopcion.rutaImagen}" height="150"/>
+                        </figcaption>
+                        <br/>
+                        <br/>
+                         <a th:href="@{/adopcion/editar/}+${adopcion.id_Adopcion}" ><button  class="btn btn-warning">Editar</button></a>
+                                <br/>
+                                <br/>
                                 <a th:href="@{/adopcion/eliminar/}+${adopcion.id_Adopcion}"><button   class="btn btn-danger">Eliminar</button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                
+                    </figure>
+         
+                            
+                        </div>
+                    </div>
+                </div>
                 </section>
                 </body>
                 </html>

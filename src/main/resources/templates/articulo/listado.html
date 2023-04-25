@@ -16,31 +16,37 @@
                 <div th:if="${articulo ==null or articulo.empty}">
                     <p>NO EXISTEN DATOS PARA MOSTRAR</p>
                 </div>
-                <table class="table table-hover" th:if="${articulo!=null and !articulo.empty}">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
+                <div class="row row-cols-3" th:if="${articulo!=null and !articulo.empty}">
+                    <div class="card" th:each="articulo : ${articulo}">
+                        <div class="card-body" >     
+                        
+                      <!-- <th scope="col">id</th>
                             <th scope="col">[[#{plantilla.Descripcion}]]:</th>
                             <th scope="col">[[#{plantilla.Detalle}]]:</th>
                             <th scope="col">[[#{plantilla.Precio}]]:</th>
                             <th scope="col">[[#{plantilla.Existencias}]]:</th>
-                            <th scope="col">[[#{plantilla.Acciones}]]:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="articulo : ${articulo}">
-                            <th scope="row">[[${articulo.id_Articulo}]]</th>
-                            <td>[[${articulo.descripcion}]]</td>
-                            <td>[[${articulo.detalle}]]</td>
-                            <td>[[${articulo.precio}]]</td>
-                            <td>[[${articulo.existencias}]]</td>
-                            <td>
-                                <a th:href="@{/articulo/editar/}+${articulo.id_Articulo}" ><button  class="btn btn-warning">EDITAR</button></a>
+                            <th scope="col">[[#{plantilla.Acciones}]]:</th>-->
+                      
+                        
+                            <h4 class="card-subtitle mb-2 text-muted text-end">[[${articulo.id_Articulo}]]</h4>
+                            <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                            <h6 class="card-text">[[${articulo.detalle}]]</h6>
+                            <h7 class="card-text">[[${articulo.precio}]]</h7>
+                            <h8 class="card-text">[[${articulo.existencias}]]</h8>
+                            <br/>
+                            <figure>
+                        <br/>
+                        <figcaption>
+                            <img th:src="${articulo.rutaImagen}" height="200" />
+                        </figcaption>
+                        <br/>
+                                <a th:href="@{/articulo/editar/}+${articulo.id_Articulo}" ><button  class="btn btn-warning">Editar</button></a>
+                                <br/>
+                                <br/>
                                 <a th:href="@{/articulo/eliminar/}+${articulo.id_Articulo}"><button   class="btn btn-danger">Eliminar</button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </figure>   
+                    
+                </div>
             </div>
         </div>
     </section>
