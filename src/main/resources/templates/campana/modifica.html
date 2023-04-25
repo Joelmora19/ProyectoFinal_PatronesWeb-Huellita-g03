@@ -5,19 +5,19 @@
      <body>
        <header th:replace="~{layout/plantilla :: header}"></header>
         <div style="padding: 10px;" >
-            <h4 th:if="${campana.id_Campanas != null}" class="text-center" >Campaña: [[${campana.nombre}]]</h4>
-            <h4 th:if="${campana.id_Campanas== null}" class="text-center" >Nueva campana</h4>
+            <h4 th:if="${campana.id_Campanas != null}" class="text-center" >[[#{plantilla.campa}]]: [[${campana.nombre}]]</h4>
+            <h4 th:if="${campana.id_Campanas== null}" class="text-center" >[[#{plantilla.NuevaCampa}]]:</h4>
         </div>
        <div style="margin: 20px;  " class="container">
             <form th:action="@{/campana/guardar}" method="POST" th:object="${campana}" class="row">
                 <input type="hidden" name="id_Campanas" th:field='*{id_Campanas}'>
                 <div class="col-5">
-                    <label class="form-label">Nombre de la campana:</label>
+                    <label class="form-label">[[#{plantilla.NombreCampa}]]:</label>
                    <input type="text" class="form-control" size="15" id="nombre" name="nombre" th:field='*{nombre}'>
 
                 </div>
                 <div class="col-5">
-                    <label class="form-label">Descripcion </label>
+                    <label class="form-label">[[#{plantilla.Descripcion}]]: </label>
                     <input type="text" class="form-control" size="15" id="descripcion" name="descripcion" th:field='*{descripcion}'>
                 </div>
                 

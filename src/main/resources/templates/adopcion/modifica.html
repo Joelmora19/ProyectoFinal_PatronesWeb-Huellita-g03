@@ -5,23 +5,23 @@
      <body>
        <header th:replace="~{layout/plantilla :: header}"></header>
         <div style="padding: 10px;" >
-            <h4 th:if="${adopcion.id_Adopcion != null}" class="text-center" >Adopcion: [[${adopcion.descripcion}]]</h4>
-            <h4 th:if="${adopcion.id_Adopcion== null}" class="text-center" >Nuevo adopcion</h4>
+            <h4 th:if="${adopcion.id_Adopcion != null}" class="text-center" >[[#{plantilla.Adopcion}]]: [[${adopcion.descripcion}]]</h4>
+            <h4 th:if="${adopcion.id_Adopcion== null}" class="text-center" >[[#{plantilla.NuevaAdopcion}]]:</h4>
         </div>
        <div style="margin: 20px;  " class="container">
             <form th:action="@{/adopcion/guardar}" method="POST" th:object="${adopcion}" class="row">
                 <input type="hidden" name="id_Adopcion" th:field='*{id_Adopcion}'>
                 <div class="col-5">
-                    <label class="form-label">Nombre de la adopcion</label>
+                    <label class="form-label">[[#{plantilla.NombreAdopcion}]]:</label>
                    <input type="text" class="form-control" size="15" id="descripcion" name="descripcion" th:field='*{descripcion}'>
 
                 </div>
                 <div class="col-5">
-                    <label class="form-label">animal</label>
+                    <label class="form-label">[[#{plantilla.Animal}]]:</label>
                     <input type="text" class="form-control" size="15" id="animal" name="animal" th:field='*{animal}'>
                 </div>
                 <div class="col-5">
-                    <label class="form-label">motivo</label>
+                    <label class="form-label">[[#{plantilla.Motivo}]]:</label>
                     <input type="text" class="form-control" size="15" id="motivo" th:field='*{motivo}' name="motivo">
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
